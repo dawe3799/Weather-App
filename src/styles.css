@@ -50,7 +50,6 @@ li a {
   transition: all 200ms ease-in-out;
 }
 
-
 .cities li {
   display: inline-block;
   margin-right: 10px;
@@ -66,10 +65,7 @@ li a {
   color: #c3195d;
   transition: all 200ms ease-in-out;
 }
-.display {
-  padding: 10px 5px 20px 70px;
-  margin: 0 auto;
-}
+
 .days {
   margin: 0 auto;
   padding: 15px;
@@ -79,11 +75,7 @@ li a {
   margin: 0 auto;
   padding: 15px;
 }
-.footer {
-  margin: 0 auto;
-  font-weight: 600;
-  text-align: center;
-}
+
 .footer a {
   text-decoration: none;
 }
