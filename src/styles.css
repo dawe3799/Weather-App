@@ -79,6 +79,7 @@ form {
 .footer {
   margin: 0 auto;
   font-weight: 900;
+  text-align: center;
 }
 .footer a {
   text-decoration: none;
