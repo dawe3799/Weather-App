@@ -42,6 +42,21 @@ li a {
   );
   color: white;
 }
+.overview {
+  margin-bottom: 20px;
+}
+.weather-temp img {
+  margin-right: 10px;
+  float: left;
+  width: 64px;
+}
+
+.weather-temp strong {
+  color: #fafafa;
+  font-size: 64px;
+  line-height: 1px;
+  font-weight: 400;
+}
 .current a {
   color: blue;
 }

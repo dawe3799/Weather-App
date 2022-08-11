@@ -69,21 +69,23 @@
             </form>
           </div>-->
           <!-- Content here -->
-          <h1 id="current-city">Kitchener</h1>
-          <ul class="currentDay">
-            <li id="today-date"></li>
-            <li id="description"></li>
-          </ul>
+          <div class="overview">
+            <h1 id="current-city">Kitchener</h1>
+            <ul class="currentDay">
+              <li id="today-date"></li>
+              <li id="description"></li>
+            </ul>
+          </div>
           <div class="row">
-            <div class="col-6 current">
-              <div class="clearfix">
+            <div class="col-6">
+              <div class="clearfix weather-temp">
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
                   alt="clear"
                   class="float-left"
                 />
                 <div class="float-left">
-                  <span id="currentTemp"> </span>
+                  <strong><span id="currentTemp"> </span></strong>
                   <a href="#" id="celsius">°C </a> |
                   <a href="#" id="fahrenheit"> °F</a>
                 </div>
