@@ -21,8 +21,9 @@ ul {
   margin: 0;
   padding: 0;
 }
-li a {
+a {
   text-decoration: none;
+  color: #fafafa;
 }
 .weather-app-wrapper {
   max-width: 600px;
