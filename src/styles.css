@@ -43,7 +43,6 @@ li a {
   color: white;
 }
 .current a {
-  text-decoration: none;
   color: blue;
 }
 .current a:hover {
@@ -51,9 +50,7 @@ li a {
   transition: all 200ms ease-in-out;
 }
 
-form {
-  margin: 0 auto;
-}
+
 .cities li {
   display: inline-block;
   margin-right: 10px;
