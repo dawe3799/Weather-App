@@ -72,21 +72,25 @@
           <div class="display w-100">
             <h1 id="current-city"></h1>
             <ul class="currentDay">
-              <li id="today-date">Monday 12:58 PM</li>
+              <li id="today-date"></li>
               <li id="description"></li>
             </ul>
-            <div class="row view w-100">
-              <div class="col-7 current">
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                  alt="clear"
-                />
-                <span id="currentTemp"> </span>
-                <a href="#" id="celsius">°C </a> |
-                <a href="#" id="fahrenheit"> °F</a>
+            <div class="row">
+              <div class="col-6 current">
+                <div class="clearfix">
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                    alt="clear"
+                    class="float-left"
+                  />
+                  <div class="float-left">
+                    <span id="currentTemp"> </span>
+                    <a href="#" id="celsius">°C </a> |
+                    <a href="#" id="fahrenheit"> °F</a>
+                  </div>
+                </div>
               </div>
-
-              <div class="col-5">
+              <div class="col-6">
                 <ul class="conditions">
                   <li>Humidity : <span id="humidity"></span>%</li>
                   <li>Precipitation : <span id="precipitation"></span>%</li>
