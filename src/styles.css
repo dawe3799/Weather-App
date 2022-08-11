@@ -76,3 +76,11 @@ form {
   margin: 0 auto;
   padding: 15px;
 }
+.footer {
+  margin: 0 auto;
+  font-weight: 900;
+}
+.footer a:hover {
+  color: #c3195d;
+  transition: all 200ms ease-in-out;
+}
