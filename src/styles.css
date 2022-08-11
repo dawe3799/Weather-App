@@ -46,7 +46,7 @@ li a {
   margin-bottom: 20px;
 }
 .weather-temp img {
-  margin-right: 10px;
+  margin-right: 6px;
   float: left;
   width: 64px;
 }
@@ -56,6 +56,12 @@ li a {
   font-size: 64px;
   line-height: 1px;
   font-weight: 400;
+}
+
+.weather-temp .units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
 }
 .current a {
   color: blue;
