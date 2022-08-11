@@ -28,111 +28,114 @@
   </head>
   <body>
     <!--<div class="container rounded-4">-->
-    <div class="body-app">
-      <div class="cities">
-        <ul>
-          <li><a href="">New York</a></li>
-          <li><a href="">Sydney</a></li>
-          <li><a href="">Paris</a></li>
-          <li><a href="">Lagos</a></li>
-          <li><a href="">Beijing</a></li>
-        </ul>
-        <form class="Search">
-          <div class="row">
-            <div class="col-6">
-              <input
-                id="cityName"
-                type="text"
-                placeholder="Enter city name"
-                class="form-control"
-                autofocus
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                class="form-control shadow-sm w-100 btn btn-primary"
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="button"
-                id="currentLocation"
-                value="Current"
-                class="btn btn-success w-100"
-              />
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- Content here -->
-      <div class="display w-100">
-        <h1 id="current-city"></h1>
-        <ul class="currentDay">
-          <li id="today-date">Monday 12:58 PM</li>
-          <li id="description"></li>
-        </ul>
-        <div class="row view w-100">
-          <div class="col-7 current">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-              alt="clear"
-            />
-            <span id="currentTemp"> </span>
-            <a href="#" id="celsius">°C </a> |
-            <a href="#" id="fahrenheit"> °F</a>
-          </div>
-
-          <div class="col-5">
-            <ul class="conditions">
-              <li>Humidity : <span id="humidity"></span>%</li>
-              <li>Precipitation : <span id="precipitation"></span>%</li>
-              <li>Wind : <span id="wind"></span> km/hr</li>
+    <div class="container">
+      <div class="weather-app-wrapper">
+        <div class="body-app">
+          <div class="cities">
+            <ul>
+              <li><a href="">New York</a></li>
+              <li><a href="">Sydney</a></li>
+              <li><a href="">Paris</a></li>
+              <li><a href="">Lagos</a></li>
+              <li><a href="">Beijing</a></li>
             </ul>
+            <form class="Search">
+              <div class="row">
+                <div class="col-6">
+                  <input
+                    id="cityName"
+                    type="text"
+                    placeholder="Enter city name"
+                    class="form-control"
+                    autofocus
+                  />
+                </div>
+                <div class="col-3">
+                  <input
+                    type="submit"
+                    value="Search"
+                    class="form-control shadow-sm w-100 btn btn-primary"
+                  />
+                </div>
+                <div class="col-3">
+                  <input
+                    type="button"
+                    id="currentLocation"
+                    value="Current"
+                    class="btn btn-success w-100"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Content here -->
+          <div class="display w-100">
+            <h1 id="current-city"></h1>
+            <ul class="currentDay">
+              <li id="today-date">Monday 12:58 PM</li>
+              <li id="description"></li>
+            </ul>
+            <div class="row view w-100">
+              <div class="col-7 current">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                  alt="clear"
+                />
+                <span id="currentTemp"> </span>
+                <a href="#" id="celsius">°C </a> |
+                <a href="#" id="fahrenheit"> °F</a>
+              </div>
+
+              <div class="col-5">
+                <ul class="conditions">
+                  <li>Humidity : <span id="humidity"></span>%</li>
+                  <li>Precipitation : <span id="precipitation"></span>%</li>
+                  <li>Wind : <span id="wind"></span> km/hr</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row days">
+            <div class="col-2">
+              <h5>Tuesday</h5>
+              <h1>🌧 <br />27°C</h1>
+              <h5>Sunny</h5>
+            </div>
+            <div class="col-2">
+              <h5>Wednesday</h5>
+              <h1>☀<br />11°C</h1>
+              <h5>Rainy</h5>
+            </div>
+            <div class="col-2">
+              <h5>Thursday</h5>
+              <h1>⛅ <br />15°C</h1>
+              <h5>Cloudy</h5>
+            </div>
+            <div class="col-2">
+              <h5>Friday</h5>
+              <h1>☀ <br />29°C</h1>
+              <h5>Sunny</h5>
+            </div>
+            <div class="col-2">
+              <h5>Saturday</h5>
+              <h1>⛈<br />2°C</h1>
+              <h5>Rainy</h5>
+            </div>
+            <div class="col-2">
+              <h5>Sunday</h5>
+              <h1>⛅ <br />13°C</h1>
+              <h5>Cloudy</h5>
+            </div>
           </div>
         </div>
+
+        <small>
+          <a href="https://github.com/dawe3799/Weather-App" target="_blank"
+            >Open-source code</a
+          >
+          by Demi Awe
+        </small>
       </div>
-      <div class="row days">
-        <div class="col-2">
-          <h5>Tuesday</h5>
-          <h1>🌧 <br />27°C</h1>
-          <h5>Sunny</h5>
-        </div>
-        <div class="col-2">
-          <h5>Wednesday</h5>
-          <h1>☀<br />11°C</h1>
-          <h5>Rainy</h5>
-        </div>
-        <div class="col-2">
-          <h5>Thursday</h5>
-          <h1>⛅ <br />15°C</h1>
-          <h5>Cloudy</h5>
-        </div>
-        <div class="col-2">
-          <h5>Friday</h5>
-          <h1>☀ <br />29°C</h1>
-          <h5>Sunny</h5>
-        </div>
-        <div class="col-2">
-          <h5>Saturday</h5>
-          <h1>⛈<br />2°C</h1>
-          <h5>Rainy</h5>
-        </div>
-        <div class="col-2">
-          <h5>Sunday</h5>
-          <h1>⛅ <br />13°C</h1>
-          <h5>Cloudy</h5>
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-      <small>
-        <a href="https://github.com/dawe3799/Weather-App" target="_blank"
-          >Open-source code</a
-        >
-        by Demi Awe
-      </small>
     </div>
     <script src="src/index.js"></script>
   </body>
