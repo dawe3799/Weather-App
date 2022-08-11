@@ -1,3 +1,15 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.body-app {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
 h1,
 h2,
 h3 {
@@ -5,12 +17,10 @@ h3 {
 }
 
 h1 {
-  font-family: "Sansita", sans-serif;
+  font-size: 24px;
   font-weight: bold;
-}
-
-h5 {
-  font-family: "Sansita", sans-serif;
+  line-height: 28px;
+  margin-bottom: 0;
 }
 li {
   list-style: none;
@@ -20,6 +30,7 @@ li {
   line-height: 1;
   font-family: "Sansita", sans-serif;
   margin: 0;
+  padding: 0;
 }
 li a {
   text-decoration: none;
