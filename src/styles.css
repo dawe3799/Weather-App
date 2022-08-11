@@ -80,6 +80,9 @@ form {
   margin: 0 auto;
   font-weight: 900;
 }
+.footer a {
+  text-decoration: none;
+}
 .footer a:hover {
   color: #c3195d;
   transition: all 200ms ease-in-out;
