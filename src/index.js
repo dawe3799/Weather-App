@@ -98,6 +98,32 @@ function searchLocation(position) {
   let weatherApiUrl = `${endPoint}?lat=${lat}&lon=${long}&appid=${weatherApiKey}&units=${units}`;
   axios.get(weatherApiUrl).then(displayWeather);
 }
+
+//GEt Fahrenheit Temperature
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  //remove active class from teh celsius link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let FahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#currentTemp");
+  temperatureElement.innerHTML = Math.round(FahrenheitTemp);
+}
+
+//Get Celsius Temperature
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let celsiusElement = document.querySelector("#currentTemp");
+  celsiusElement.innerHTML = Math.round(celsiusTemp);
+}
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 function getCurrentPosition(searchLocation) {}
 let current = document.querySelector("#currentLocation");
 current.addEventListener("click", displayCurrentLocation);
