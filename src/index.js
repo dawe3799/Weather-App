@@ -2,6 +2,45 @@ let weatherApiKey = "25ab5286afcbdded052a998b9b369c43";
 let endPoint = "https://api.openweathermap.org/data/2.5/weather";
 let units = "metric";
 
+/*Calcualte the timestamp*/
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let seconds = date.getSeconds();
+  let minutes = date.getMinutes();
+
+  //Function to derive the minutes in :MM
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  } else {
+    minutes = minutes;
+  }
+  let dayPeriod;
+  if (hours >= 12) {
+    dayPeriod = "PM";
+  } else {
+    dayPeriod = "AM";
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes} ${dayPeriod}`;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 function searchCity(city) {
   let weatherApiUrl = `${endPoint}?q=${city}&appid=${weatherApiKey}&units=${units}`;
   axios.get(weatherApiUrl).then(displayWeather);
@@ -16,107 +55,41 @@ function getSearchCity(event) {
   searchCity(city);
 }
 
+/*The function that displays the response from the API to the screen*/
 function displayWeather(response) {
   console.log(response);
-  //Get temperature of current city
   document.querySelector("#current-city").innerHTML = response.data.name;
 
-  //Get Searched city
-  let temp = Math.round(response.data.main.temp);
-  let cityTemp = document.querySelector("#currentTemp");
-  cityTemp.innerHTML = temp;
-  //Get Wind
-  let windy = Math.round(response.data.wind.speed);
+  let cityTemperature = document.querySelector("#currentTemp");
   let windSpeed = document.querySelector("#wind");
-  windSpeed.innerHTML = windy;
-  //Get humidity
-  let humid = Math.round(response.data.main.humidity);
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = humid;
-
-  //Get description
-  let description = response.data.weather[0].main;
   let weatherDescription = document.querySelector("#description");
-  weatherDescription.innerHTML = description;
-}
+  let currentDate = document.querySelector("#today-date");
 
-//function displayDate(today) {
-let today = new Date();
+  let icon = document.querySelector("#icon");
+  //Get temperature of current city
 
-let hours = today.getHours();
-let seconds = today.getSeconds();
-let minutes = today.getMinutes();
-let day = today.getDay();
+  //Get temperature
+  cityTemperature.innerHTML = Math.round(response.data.main.temp);
+  //Get wind speed
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  //Get humidity
+  humidity.innerHTML = Math.round(response.data.main.humidity);
+  //Get description
+  weatherDescription.innerHTML = response.data.weather[0].description;
+  //Get Date
+  currentDate.innerHTML = formatDate(response.data.dt * 1000);
 
-//Function to derive the minutes in :MM
-function getMinutes(minutes) {
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  } else {
-    minutes = minutes;
-  }
-  return minutes;
-}
-
-//The function to get either AM or PM
-function getAMPM(hours) {
-  let dayPeriod;
-  if (hours >= 12) {
-    dayPeriod = "PM";
-  } else {
-    dayPeriod = "AM";
-  }
-  return dayPeriod;
-}
-
-//function to derive the day
-function getDay(day) {
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  return (day = days[day]);
-}
-
-//let todayDate = `${day} ${time}`;
-let displayTodayDate = document.querySelector("#today-date");
-displayTodayDate.innerHTML = `${getDay(day)}  ${hours} : ${getMinutes(
-  minutes
-)} ${getAMPM(hours)}`;
-
-let form = document.querySelector("form");
-form.addEventListener("submit", getSearchCity);
-
-/*Changing the celsius to Fahrenheit and vice versa*/
-let cel = 17;
-function getCelsiusTemp(event) {
-  event.preventDefault();
-  let celsius = document.querySelector("#currentTemp");
-  celsius.innerHTML = cel;
-}
-
-function getFahrenheitTemp(event) {
-  event.preventDefault();
-  let fahrenheit = document.querySelector("#currentTemp");
-  let fah = Math.round((cel * 9) / 5 + 32);
-  fahrenheit.innerHTML = `${fah}`;
-}
-
-let celsiusTemp = document.querySelector("#celsius");
-celsiusTemp.addEventListener("click", getCelsiusTemp);
-
-let faherenheitTemp = document.querySelector("#fahrenheit");
-faherenheitTemp.addEventListener("click", getFahrenheitTemp);
-
-function displayCurrentLocation(event) {
-  //debugger;
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
+  //Get the weather icon
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  //Set alt attribute
+  icon.setAttribute(
+    "alt",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
+  );
 }
 
 function searchLocation(position) {
@@ -129,3 +102,11 @@ function getCurrentPosition(searchLocation) {}
 let current = document.querySelector("#currentLocation");
 current.addEventListener("click", displayCurrentLocation);
 searchCity("Kitchener");
+
+function displayCurrentLocation(event) {
+  //debugger;
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+let form = document.querySelector("form");
+form.addEventListener("submit", getSearchCity);
