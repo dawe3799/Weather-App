@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -22,127 +23,124 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="src/styles.css" />
-
     <title>Weather App</title>
   </head>
   <body>
-    <!--<div class="container rounded-4">-->
     <div class="container">
-      <div class="weather-app-wrapper">
+        <div class="weather-app-wrapper">
         <div class="body-app">
-          <!-- <div class="cities">
-            <ul>
-              <li><a href="">New York</a></li>
-              <li><a href="">Sydney</a></li>
-              <li><a href="">Paris</a></li>
-              <li><a href="">Lagos</a></li>
-              <li><a href="">Beijing</a></li>
-            </ul>
-            <form class="Search">
-              <div class="row">
-                <div class="col-6">
-                  <input
-                    id="cityName"
-                    type="text"
-                    placeholder="Enter city name"
-                    class="form-control"
-                    autofocus
-                  />
-                </div>
-                <div class="col-3">
-                  <input
-                    type="submit"
-                    value="Search"
-                    class="form-control shadow-sm w-100 btn btn-primary"
-                  />
-                </div>
-                <div class="col-3">
-                  <input
-                    type="button"
-                    id="currentLocation"
-                    value="Current"
-                    class="btn btn-success w-100"
-                  />
-                </div>
-              </div>
-            </form>
-          </div>-->
-          <!-- Content here -->
-          <div class="overview">
-            <h1 id="current-city">Kitchener</h1>
-            <ul class="currentDay">
-              <li id="today-date"></li>
-              <li id="description"></li>
-            </ul>
-          </div>
+      <div class="cities">
+        <!--<ul>
+          <li><a href="">New York</a></li>
+          <li><a href="">Sydney</a></li>
+          <li><a href="">Paris</a></li>
+          <li><a href="">Lagos</a></li>
+          <li><a href="">Beijing</a></li>
+        </ul>-->
+        <form class="Search">
           <div class="row">
             <div class="col-6">
-              <div class="weather-temp">
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                  alt="clear"
-                />
-                <div class="float-left">
-                  <strong><span id="currentTemp"> </span>12</strong>
-                  <span class="units">
-                    <a href="#" id="celsius">°C </a> |
-                    <a href="#" id="fahrenheit"> °F</a></span
-                  >
-                </div>
-              </div>
+              <input
+                id="cityName"
+                type="text"
+                placeholder="Enter city name"
+                class="form-control"
+                autofocus
+              />
             </div>
-            <div class="col-6">
-              <ul>
-                <li>Humidity : <span id="humidity"></span>%</li>
-                <li>Precipitation : <span id="precipitation"></span>%</li>
-                <li>Wind : <span id="wind"></span> km/hr</li>
-              </ul>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control shadow-sm w-100 btn btn-primary"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="button"
+                id="currentLocation"
+                value="Current"
+                class="btn btn-success w-100"
+              />
             </div>
           </div>
-
-          <div class="row days">
-            <div class="col-2">
-              <h5>Tuesday</h5>
-              <h1>🌧 <br />27°C</h1>
-              <h5>Sunny</h5>
+        </form>
+      </div>
+      <!-- Content here -->
+      <div class="overview">
+        <h1 id="current-city"></h1>
+        <ul>
+          <li id="today-date"></li>
+          <li id="description"></li>
+        </ul>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="clearfix weather-temp">           
+            <img
+              src=""
+              alt="Clear"
+              id="icon"             
+            />  
+             <div class="float-left">        
+            <strong id="currentTemp"> </strong>
+            <span class="units">
+            <a href="#" id="celsius">°C </a> |
+            <a href="#" id="fahrenheit"> °F</a>
+            </span>
             </div>
-            <div class="col-2">
-              <h5>Wednesday</h5>
-              <h1>☀<br />11°C</h1>
-              <h5>Rainy</h5>
-            </div>
-            <div class="col-2">
-              <h5>Thursday</h5>
-              <h1>⛅ <br />15°C</h1>
-              <h5>Cloudy</h5>
-            </div>
-            <div class="col-2">
-              <h5>Friday</h5>
-              <h1>☀ <br />29°C</h1>
-              <h5>Sunny</h5>
-            </div>
-            <div class="col-2">
-              <h5>Saturday</h5>
-              <h1>⛈<br />2°C</h1>
-              <h5>Rainy</h5>
-            </div>
-            <div class="col-2">
-              <h5>Sunday</h5>
-              <h1>⛅ <br />13°C</h1>
-              <h5>Cloudy</h5>
-            </div>
+          </div>
+ </div>
+          <div class="col-6">
+            <ul>
+              <li>Humidity : <span id="humidity"></span>%</li>
+              <li>Precipitation : <span id="precipitation"></span>%</li>
+              <li>Wind : <span id="wind"></span> km/hr</li>
+            </ul>
           </div>
         </div>
-
-        <small>
+     
+      <div class="row days">
+        <div class="col-2">
+          <h5>Tuesday</h5>
+          <h1>🌧 <br />27°C</h1>
+          <h5>Sunny</h5>
+        </div>
+        <div class="col-2">
+          <h5>Wednesday</h5>
+          <h1>☀<br />11°C</h1>
+          <h5>Rainy</h5>
+        </div>
+        <div class="col-2">
+          <h5>Thursday</h5>
+          <h1>⛅ <br />15°C</h1>
+          <h5>Cloudy</h5>
+        </div>
+        <div class="col-2">
+          <h5>Friday</h5>
+          <h1>☀ <br />29°C</h1>
+          <h5>Sunny</h5>
+        </div>
+        <div class="col-2">
+          <h5>Saturday</h5>
+          <h1>⛈<br />2°C</h1>
+          <h5>Rainy</h5>
+        </div>
+        <div class="col-2">
+          <h5>Sunday</h5>
+          <h1>⛅ <br />13°C</h1>
+          <h5>Cloudy</h5>
+        </div>
+      </div>
+    </div>
+    
+     <small>
           <a href="https://github.com/dawe3799/Weather-App" target="_blank"
             >Open-source code</a
           >
-          by Demi Awe
-        </small>
-      </div>
-    </div>
-    <script src="src/index.js"></script>
+          by Demi Awe <small>  
+            </div>    
+            </div>   
+    <script src="src/index.js"></script>    
   </body>
 </html>
