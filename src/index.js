@@ -1,7 +1,8 @@
+//Global Variables
 let weatherApiKey = "25ab5286afcbdded052a998b9b369c43";
 let endPoint = "https://api.openweathermap.org/data/2.5/weather";
 let units = "metric";
-
+let celsiusTemp = null;
 /*Calcualte the timestamp*/
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -90,6 +91,8 @@ function displayWeather(response) {
     "alt",
     `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
   );
+
+  celsiusTemp = response.data.main.temp;
 }
 
 function searchLocation(position) {
@@ -97,6 +100,16 @@ function searchLocation(position) {
   let long = position.coords.longitude;
   let weatherApiUrl = `${endPoint}?lat=${lat}&lon=${long}&appid=${weatherApiKey}&units=${units}`;
   axios.get(weatherApiUrl).then(displayWeather);
+}
+function getCurrentPosition(searchLocation) {}
+let current = document.querySelector("#currentLocation");
+current.addEventListener("click", displayCurrentLocation);
+searchCity("Kitchener");
+
+function displayCurrentLocation(event) {
+  //debugger;
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
 //GEt Fahrenheit Temperature
@@ -124,15 +137,6 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
-function getCurrentPosition(searchLocation) {}
-let current = document.querySelector("#currentLocation");
-current.addEventListener("click", displayCurrentLocation);
-searchCity("Kitchener");
 
-function displayCurrentLocation(event) {
-  //debugger;
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
 let form = document.querySelector("form");
 form.addEventListener("submit", getSearchCity);
