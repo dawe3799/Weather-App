@@ -7,7 +7,6 @@ let celsiusTemp = null;
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  let seconds = date.getSeconds();
   let minutes = date.getMinutes();
 
   //Function to derive the minutes in :MM
@@ -58,21 +57,29 @@ function getSearchCity(event) {
 
 //To display the forecast
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Tue", "Wed", "Thur", "Fri"];
+  //let days = ["Tue", "Wed", "Thur", "Fri"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-2">
-    <div class="weatherforecastDay">${day}</div>
-    <img src="" alt="CLear" width="42" id="icon"/>
-    <div class="weatherforecastTemperature"><span class="maxTemp">35°</span> 
-        <span class="minTemperature">25°</span></div>  
+    <div class="weatherforecastDay">${formatDay(forecastDay.dt)}</div>
+    <img src="http://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png" alt="CLear" width="42" id="icon"/>
+    <div class="weatherforecastTemperature"><span class="maxTemp">${Math.round(
+      forecastDay.temp.max
+    )}°</span> 
+        <span class="minTemperature"> ${Math.round(
+          forecastDay.temp.min
+        )}°</span></div>  
 </div>
     `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -169,5 +176,3 @@ celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 let form = document.querySelector("form");
 form.addEventListener("submit", getSearchCity);
-
-displayForecast();
