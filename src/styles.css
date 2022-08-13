@@ -85,3 +85,18 @@ li::first-letter {
   margin: 0 auto;
   font-weight: 500;
 }
+.weatherForecast {
+  margin-top: 20px;
+  text-align: center;
+}
+.weatherforecastDay {
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.weatherforecastTemperature {
+  font-size: 15px;
+}
+.minTemperature {
+  opacity: 0.5;
+}

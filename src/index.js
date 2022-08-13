@@ -1,6 +1,6 @@
 //Global Variables
 let weatherApiKey = "25ab5286afcbdded052a998b9b369c43";
-let endPoint = "https://api.openweathermap.org/data/2.5/weather";
+let endPoint = "https://api.openweathermap.org/data/2.5/";
 let units = "metric";
 let celsiusTemp = null;
 /*Calcualte the timestamp*/
@@ -43,7 +43,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 function searchCity(city) {
-  let weatherApiUrl = `${endPoint}?q=${city}&appid=${weatherApiKey}&units=${units}`;
+  let weatherApiUrl = `${endPoint}weather?q=${city}&appid=${weatherApiKey}&units=${units}`;
   axios.get(weatherApiUrl).then(displayWeather);
 }
 
@@ -56,6 +56,34 @@ function getSearchCity(event) {
   searchCity(city);
 }
 
+//To display the forecast
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Tue", "Wed", "Thur", "Fri"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+    <div class="weatherforecastDay">${day}</div>
+    <img src="" alt="CLear" width="42" id="icon"/>
+    <div class="weatherforecastTemperature"><span class="maxTemp">35°</span> 
+        <span class="minTemperature">25°</span></div>  
+</div>
+    `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+//Function to get the coordiantes for forecast
+function getWeatherForecast(coordinates) {
+  let apiUrl = `${endPoint}onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${weatherApiKey}&units=${units}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 /*The function that displays the response from the API to the screen*/
 function displayWeather(response) {
   console.log(response);
@@ -93,6 +121,7 @@ function displayWeather(response) {
   );
 
   celsiusTemp = response.data.main.temp;
+  getWeatherForecast(response.data.coord);
 }
 
 function searchLocation(position) {
@@ -140,3 +169,5 @@ celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 let form = document.querySelector("form");
 form.addEventListener("submit", getSearchCity);
+
+displayForecast();
