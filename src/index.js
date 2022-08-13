@@ -127,7 +127,7 @@ function displayWeather(response) {
 function searchLocation(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  let weatherApiUrl = `${endPoint}?lat=${lat}&lon=${long}&appid=${weatherApiKey}&units=${units}`;
+  let weatherApiUrl = `${endPoint}weather?lat=${lat}&lon=${long}&appid=${weatherApiKey}&units=${units}`;
   axios.get(weatherApiUrl).then(displayWeather);
 }
 function getCurrentPosition(searchLocation) {}
