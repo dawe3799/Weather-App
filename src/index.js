@@ -49,6 +49,7 @@ function searchCity(city) {
 //function to derive the searchCity value
 function getSearchCity(event) {
   event.preventDefault();
+  debugger;
   //make api call
   //get response and display city name and temperature
   let city = document.querySelector("#cityName").value;
@@ -168,11 +169,11 @@ function displayCelsiusTemp(event) {
   let celsiusElement = document.querySelector("#currentTemp");
   celsiusElement.innerHTML = Math.round(celsiusTemp);
 }
-let fahrenheitLink = document.querySelector("#fahrenheit");
+/*let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
+celsiusLink.addEventListener("click", displayCelsiusTemp);*/
 
 let form = document.querySelector("form");
 form.addEventListener("submit", getSearchCity);
