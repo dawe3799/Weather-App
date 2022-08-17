@@ -149,7 +149,7 @@ function displayCurrentLocation(event) {
 }
 
 //GEt Fahrenheit Temperature
-function displayFahrenheitTemp(event) {
+/*function displayFahrenheitTemp(event) {
   event.preventDefault();
   //remove active class from teh celsius link
   celsiusLink.classList.remove("active");
@@ -157,14 +157,14 @@ function displayFahrenheitTemp(event) {
   let FahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#currentTemp");
   temperatureElement.innerHTML = Math.round(FahrenheitTemp);
-}
+}*/
 
 //Get Celsius Temperature
 
 function displayCelsiusTemp(event) {
   event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
+  /*celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");*/
   let celsiusElement = document.querySelector("#currentTemp");
   celsiusElement.innerHTML = Math.round(celsiusTemp);
 }
