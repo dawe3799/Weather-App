@@ -49,7 +49,7 @@ function searchCity(city) {
 //function to derive the searchCity value
 function getSearchCity(event) {
   event.preventDefault();
-  debugger;
+  //debugger;
   //make api call
   //get response and display city name and temperature
   let city = document.querySelector("#cityName").value;
